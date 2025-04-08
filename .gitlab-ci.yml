@@ -1,0 +1,24 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - echo "Building the project"
+    - make build  # Remplacez par vos propres commandes
+
+test_job:
+  stage: test
+  script:
+    - echo "Running tests"
+    - make test  # Remplacez par vos propres tests
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying the project"
+    - ./deploy.sh  # Remplacez par la commande de déploiement
+  only:
+    - main  # Déployez seulement sur la branche main
